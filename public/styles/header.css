@@ -1,14 +1,20 @@
-header {
+.website-header {
   height: 400px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #8c9adb;
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+  background-color: #c99210;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  color: #FFFFFF;
 }
 
-header img {
+.website-header img {
   padding-top: 1.5em;
+}
+
+.website-header p {
+  font-size: 38px;
+  margin-top: 0;
 }

@@ -1,5 +1,5 @@
 nav {
-  height: 120px;
+  height: 110px;
   width: 100%;
   background-color: #4056A1;
   color: #FFFFFF;
@@ -14,6 +14,7 @@ nav {
 
  .nav-left {
   margin-right:auto;
+  font-size: 30px;
  }
 
  .nav-right {

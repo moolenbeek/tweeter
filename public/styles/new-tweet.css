@@ -34,4 +34,11 @@
 
 .counter {
   font-family: 'Bungee', cursive;
+  color: #545149;
 }
+
+.counter-red {
+  font-family: 'Bungee', cursive;
+  color: red;
+}
+
