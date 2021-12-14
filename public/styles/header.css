@@ -8,13 +8,15 @@
   background-color: #c99210;
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   color: #FFFFFF;
+  margin-top: 100px;
 }
 
 .website-header img {
-  padding-top: 1.5em;
+  padding-top: 3em;
 }
 
 .website-header p {
   font-size: 38px;
   margin-top: 0;
+  padding-bottom: 1.5em;
 }

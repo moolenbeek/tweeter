@@ -3,6 +3,7 @@
   width: 80%;
   display: flex;
   flex-direction: column;
+  margin-top: 1.5em;
 }
 
 .new-tweet form {
@@ -15,6 +16,9 @@
 
 .new-tweet h2 {
   align-self: flex-start;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-bottom: 1em;
 }
 
 #tweet-text {

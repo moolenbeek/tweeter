@@ -6,6 +6,9 @@ nav {
   padding: 1.5em;
   display: flex;
   flex-direction: row;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
  }
 
  nav span {

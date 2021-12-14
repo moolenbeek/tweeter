@@ -15,8 +15,8 @@
 }
 
 .tweet img {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   margin: auto;
 }
 
@@ -26,6 +26,7 @@
 }
 
 .tweet-header-left {
+  margin-left: 14px;
   margin-right: auto;
   display: flex;
 }
@@ -40,6 +41,14 @@
   color: #4056A1;
   opacity: 0.3;
   font-weight: bold;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.tweet-name {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 8px;
 }
 
 .tweet-message {
@@ -47,14 +56,22 @@
   border-bottom: 5px solid #545149;
   width: 97%;
   margin: auto;
+  margin-bottom: 8px;
   padding-left: 0.5em;
   font-size: 20px;
   font-weight: bold;
+  padding-top: 20px;
+}
+
+.tweet-message p {
+  padding-bottom: 10px;
 }
 
 .tweet-footer {
   display: flex;
   flex-direction: row;
+  padding-bottom: 1em;
+  padding-top: 0.5em;
 }
 
 .tweet-footer-left {
@@ -62,13 +79,13 @@
   margin-left: 1em;
   display: flex;
   font-size: 15px;
+  align-self: center;
 }
 
 .tweet-footer-right {
   justify-content: flex-end;
   flex-direction: column;
-  margin-right: 1em;
-  margin-top: 0.5em;
+  margin-right: 0.5em;
 }
 
 i:hover {
