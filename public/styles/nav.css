@@ -27,5 +27,9 @@ nav {
  }
 
  .nav-right i {
-   color: red; 
+   color: red;
+ }
+
+ .nav-right i:hover {
+  color: #FFFFFF;
  }

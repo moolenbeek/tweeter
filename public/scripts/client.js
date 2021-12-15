@@ -4,60 +4,57 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const data = [{
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
 $(document).ready(function () {
-  console.log("ready!");
-  renderTweets(data);
 
+  loadTweets();
+  
   $("#target").submit(function (event) {
     // alert("Handler for .submit() called.");
     event.preventDefault();
-    console.log($( this ).serialize());
-
-    $.ajax({
-      method: "POST",
-      url: "http://localhost:8080/tweets/",
-      data: $( this ).serialize(),
-      success: function (data) {
-        console.log('success');
-      }
-    });
+    const url = "http://localhost:8080/tweets/";
+    const text = $( this ).serialize().split("=").pop();
+    const data = $( this ).serialize();
+    
+    if (text && text.length < 141) {
+      $.ajax({
+        method: "POST",
+        url: url,
+        data: data,
+        success: function () {
+          loadTweets();
+          $( '.tweet-form' )[0].reset();
+          const counter = $('.tweet-form')[0][2];
+          $(counter).html(140);
+        }
+      })
+    } else if (text.length > 141){ 
+      window.alert('tweet is more than 140 characters');
+    } else if (!text) {
+      window.alert('tweet is empty');
+    }
   });
 });
 
+const focusTweetText = () => {
+  document.getElementById("tweet-text").focus();
+}
 
-
+const loadTweets = () => {
+  $.ajax('http://localhost:8080/tweets/', { method: 'GET' })
+  .then(function (data) {
+    renderTweets(data);
+  });
+}
 
 const renderTweets = tweets => {
   // loops through tweets
-  for (const tweet of tweets) {
+  $( '#tweet-section' ).empty();
+
+  for (const tweet of tweets.reverse()) {
     // calls createTweetElement for each tweet
     const $tweet = createTweetElement(tweet);
     // takes return value and appends it to the tweets container
-    $('#tweet-section').append($tweet);
+    $( '#tweet-section' ).append($tweet);
   }
 }
 
