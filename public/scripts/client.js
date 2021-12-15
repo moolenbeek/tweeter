@@ -31,7 +31,24 @@ const data = [{
 $(document).ready(function () {
   console.log("ready!");
   renderTweets(data);
+
+  $("#target").submit(function (event) {
+    // alert("Handler for .submit() called.");
+    event.preventDefault();
+    console.log($( this ).serialize());
+
+    $.ajax({
+      method: "POST",
+      url: "http://localhost:8080/tweets/",
+      data: $( this ).serialize(),
+      success: function (data) {
+        console.log('success');
+      }
+    });
+  });
 });
+
+
 
 
 const renderTweets = tweets => {
@@ -45,34 +62,33 @@ const renderTweets = tweets => {
 }
 
 const createTweetElement = tweet => {
-  let time = timeago.format(tweet.created_at);
-  let $tweet = `
+  const time = timeago.format(tweet.created_at);
+  const $tweet = `
   <article class="tweet">
-  <header class="tweet-header">
-    <div class="tweet-header-left">
-      <img src="${tweet.user.avatars}">
-      <p class="tweet-name">${tweet.user.name}</p>
-    </div>
-    <div class="tweet-header-right">
-      <p class="tweet-username">${tweet.user.handle}</p>
-    </div>
-  </header>
+    <header class="tweet-header">
+      <div class="tweet-header-left">
+        <img src="${tweet.user.avatars}">
+        <p class="tweet-name">${tweet.user.name}</p>
+      </div>
+      <div class="tweet-header-right">
+        <p class="tweet-username">${tweet.user.handle}</p>
+      </div>
+    </header>
 
-  <div class="tweet-message">
-    <p>${tweet.content.text}</p>
-  </div>
+    <div class="tweet-message">
+      <p>${tweet.content.text}</p>
+    </div>
 
-  <footer class="tweet-footer">
-    <div class="tweet-footer-left">
-      <p>${time}</p>
-    </div>
-    <div class="tweet-footer-right">
-      <i class="fas fa-flag fa-xs"></i>
-      <i class="fas fa-retweet fa-xs"></i>
-      <i class="fas fa-heart fa-xs"></i>
-    </div>
-  </footer>
+    <footer class="tweet-footer">
+      <div class="tweet-footer-left">
+        <p>${time}</p>
+      </div>
+      <div class="tweet-footer-right">
+        <i class="fas fa-flag fa-xs"></i>
+        <i class="fas fa-retweet fa-xs"></i>
+        <i class="fas fa-heart fa-xs"></i>
+      </div>
+    </footer>
   </article>`;
-  // ...
   return $tweet;
 }
