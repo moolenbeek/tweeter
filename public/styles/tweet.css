@@ -65,6 +65,8 @@
 
 .tweet-message p {
   padding-bottom: 10px;
+  display: inline-block;
+  word-break: break-word;
 }
 
 .tweet-footer {
@@ -90,4 +92,10 @@
 
 i:hover {
   color: #4056A1;
+}
+
+@media screen and (min-width: 1024px) {
+  .tweet-section {
+    margin-right: 0;
+  }
 }

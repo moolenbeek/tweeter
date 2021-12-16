@@ -42,3 +42,11 @@ body {
    margin: auto;
    background-color: #f4f1ec;
  }
+
+ @media screen and (min-width: 1024px) {
+  main {
+    display: inline-block;
+    width: 55%;
+    margin: 0;
+  }
+}
