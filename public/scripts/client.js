@@ -8,17 +8,17 @@ $(document).ready(function () {
 
   $('.error-long').hide();
   $('.error-null').hide();
-  
+
 
   loadTweets();
-  
+
   $("#target").submit(function (event) {
     // alert("Handler for .submit() called.");
     event.preventDefault();
     const url = "http://localhost:8080/tweets/";
-    const text = $( this ).serialize().split("=").pop();
-    const data = $( this ).serialize();
-    
+    const text = $(this).serialize().split("=").pop();
+    const data = $(this).serialize();
+
     if (text && text.length < 141) {
       $.ajax({
         method: "POST",
@@ -26,14 +26,14 @@ $(document).ready(function () {
         data: data,
         success: function () {
           loadTweets();
-          $( '.tweet-form' )[0].reset();
+          $('.tweet-form')[0].reset();
           const counter = $('.tweet-form')[0][2];
           $(counter).html(140);
           $('.error-long').slideUp();
           $('.error-null').slideUp();
         }
       })
-    } else if (text.length > 141){ 
+    } else if (text.length > 141) {
       $('.error-null').hide();
       $('.error-long').slideDown();
     } else if (!text) {
@@ -48,21 +48,23 @@ const focusTweetText = () => {
 }
 
 const loadTweets = () => {
-  $.ajax('http://localhost:8080/tweets/', { method: 'GET' })
-  .then(function (data) {
-    renderTweets(data);
-  });
+  $.ajax('http://localhost:8080/tweets/', {
+      method: 'GET'
+    })
+    .then(function (data) {
+      renderTweets(data);
+    });
 }
 
 const renderTweets = tweets => {
   // loops through tweets
-  $( '#tweet-section' ).empty();
+  $('#tweet-section').empty();
 
   for (const tweet of tweets.reverse()) {
     // calls createTweetElement for each tweet
     const $tweet = createTweetElement(tweet);
     // takes return value and appends it to the tweets container
-    $( '#tweet-section' ).append($tweet);
+    $('#tweet-section').append($tweet);
   }
 }
 
