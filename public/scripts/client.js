@@ -98,9 +98,9 @@ const createTweetElement = tweet => {
         <p>${time}</p>
       </div>
       <div class="tweet-footer-right">
-        <i class="fas fa-flag fa-xs"></i>
-        <i class="fas fa-retweet fa-xs"></i>
-        <i class="fas fa-heart fa-xs"></i>
+        <i class="footer-icon fas fa-flag fa-xs"></i>
+        <i class="footer-icon fas fa-retweet fa-xs"></i>
+        <i class="footer-icon fas fa-heart fa-xs"></i>
       </div>
     </footer>
   </article>`;

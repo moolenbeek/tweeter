@@ -89,7 +89,7 @@
   margin-right: 0.5em;
 }
 
-i:hover {
+i.footer-icon:hover {
   color: #4056A1;
 }
 
