@@ -6,19 +6,21 @@
 
 $(document).ready(function () {
 
+  // hide error messages
   $('.error-long').hide();
   $('.error-null').hide();
 
-
+  // load and render tweets
   loadTweets();
 
+  // Handler for tweet form .submit()
   $("#target").submit(function (event) {
-    // alert("Handler for .submit() called.");
     event.preventDefault();
     const url = "http://localhost:8080/tweets/";
     const text = $(this).serialize().split("=").pop();
     const data = $(this).serialize();
 
+    // POST if tweet is not empty and under 140 characters
     if (text && text.length < 141) {
       $.ajax({
         method: "POST",
@@ -55,7 +57,6 @@ const loadTweets = () => {
 const renderTweets = tweets => {
   // loops through tweets
   $('#tweet-section').empty();
-
   for (const tweet of tweets.reverse()) {
     // calls createTweetElement for each tweet
     const $tweet = createTweetElement(tweet);
@@ -77,11 +78,9 @@ const createTweetElement = tweet => {
         <p class="tweet-username">${tweet.user.handle}</p>
       </div>
     </header>
-
     <div class="tweet-message">
       <p>${tweet.content.text}</p>
     </div>
-
     <footer class="tweet-footer">
       <div class="tweet-footer-left">
         <p>${time}</p>
