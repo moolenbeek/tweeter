@@ -24,7 +24,7 @@ $(document).ready(function () {
         method: "POST",
         url: url,
         data: data,
-        success: function () {
+        success: () => {
           loadTweets();
           $('.tweet-form')[0].reset();
           const counter = $('.tweet-form')[0][2];
@@ -32,7 +32,7 @@ $(document).ready(function () {
           $('.error-long').slideUp();
           $('.error-null').slideUp();
         }
-      })
+      });
     } else if (text.length > 141) {
       $('.error-null').hide();
       $('.error-long').slideDown();
@@ -43,10 +43,6 @@ $(document).ready(function () {
   });
 });
 
-const focusTweetText = () => {
-  document.getElementById("tweet-text").focus();
-}
-
 const loadTweets = () => {
   $.ajax('http://localhost:8080/tweets/', {
       method: 'GET'
@@ -54,7 +50,7 @@ const loadTweets = () => {
     .then(function (data) {
       renderTweets(data);
     });
-}
+};
 
 const renderTweets = tweets => {
   // loops through tweets
@@ -66,7 +62,7 @@ const renderTweets = tweets => {
     // takes return value and appends it to the tweets container
     $('#tweet-section').append($tweet);
   }
-}
+};
 
 const createTweetElement = tweet => {
   const time = timeago.format(tweet.created_at);
@@ -98,4 +94,4 @@ const createTweetElement = tweet => {
     </footer>
   </article>`;
   return $tweet;
-}
+};
