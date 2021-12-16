@@ -10,6 +10,9 @@ $(document).ready(function () {
   $('.error-long').hide();
   $('.error-null').hide();
 
+  // hide compose tweet
+  $('.compose-tweet').hide();
+
   // load and render tweets
   loadTweets();
 
@@ -44,6 +47,15 @@ $(document).ready(function () {
     }
   });
 });
+
+const focusTweetText = () => {
+  if ($('.compose-tweet').is(":hidden")) {
+    $('.compose-tweet').slideDown();
+  } else {
+    $('.compose-tweet').slideUp();
+  }
+  document.getElementById("tweet-text").focus();
+}
 
 const loadTweets = () => {
   $.ajax('http://localhost:8080/tweets/', {
