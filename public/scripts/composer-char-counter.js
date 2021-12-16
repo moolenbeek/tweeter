@@ -1,7 +1,5 @@
-$(document).ready(function() {
-
+$(document).ready(function () {
   messageCount();
-
 });
 
 const messageCount = () => {
@@ -16,9 +14,9 @@ const messageCount = () => {
 
     // change to counter to red if below 0
     if (counter.innerHTML > -1) {
-      counter.className = "counter"; 
+      counter.className = "counter";
     } else {
-      counter.className = "counter-red"; 
+      counter.className = "counter-red";
     }
   });
 }
