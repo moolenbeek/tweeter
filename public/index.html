@@ -64,6 +64,12 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
+      <div class="error error-long">
+        <p><i class="fas fa-exclamation-triangle fa-sm"></i>  tweet is more than 140 characters</p>
+      </div>
+      <div class="error error-null">
+        <p><i class="fas fa-exclamation-triangle fa-sm"></i>  tweet is empty</p>
+      </div>
       <h2>Compose Tweet</h2>
       <form id="target" class="tweet-form" action="/tweets/" method="POST">
         <textarea placeholder="What are you humming about?" name="text" id="tweet-text"></textarea>

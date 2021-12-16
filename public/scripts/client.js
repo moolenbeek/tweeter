@@ -6,6 +6,10 @@
 
 $(document).ready(function () {
 
+  $('.error-long').hide();
+  $('.error-null').hide();
+  
+
   loadTweets();
   
   $("#target").submit(function (event) {
@@ -25,12 +29,16 @@ $(document).ready(function () {
           $( '.tweet-form' )[0].reset();
           const counter = $('.tweet-form')[0][2];
           $(counter).html(140);
+          $('.error-long').slideUp();
+          $('.error-null').slideUp();
         }
       })
     } else if (text.length > 141){ 
-      window.alert('tweet is more than 140 characters');
+      $('.error-null').hide();
+      $('.error-long').slideDown();
     } else if (!text) {
-      window.alert('tweet is empty');
+      $('.error-long').hide();
+      $('.error-null').slideDown();
     }
   });
 });
