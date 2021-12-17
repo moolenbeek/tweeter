@@ -16,3 +16,11 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+## Final Product
+
+!["Screenshot of URLs page"](https://github.com/moolenbeek/tweeter/blob/master/public/images/Desktop.png)
+
+!["Screenshot of URLs page after login"](https://github.com/moolenbeek/tweeter/blob/master/public/images/Error.png)
+
+!["Screenshot of URLs page with urls"](https://github.com/moolenbeek/tweeter/blob/master/public/images/Responsive.png)
