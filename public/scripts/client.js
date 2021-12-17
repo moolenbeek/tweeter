@@ -22,23 +22,27 @@ $(document).ready(function () {
     const url = "http://localhost:8080/tweets/";
     const text = $(this).serialize().split("=").pop();
     const data = $(this).serialize();
+    const charLimit = 140;
 
     // POST if tweet is not empty and under 140 characters
-    if (text && text.length < 141) {
+    if (text && text.length <= charLimit) {
       $.ajax({
         method: "POST",
         url: url,
         data: data,
         success: () => {
           loadTweets();
+          // reset counter
           $('.tweet-form')[0].reset();
           const counter = $('.tweet-form')[0][2];
-          $(counter).html(140);
+          $(counter).html(charLimit);
+
           $('.error-long').slideUp();
           $('.error-null').slideUp();
         }
       });
-    } else if (text.length > 141) {
+      // error messages
+    } else if (text.length >= charLimit) {
       $('.error-null').hide();
       $('.error-long').slideDown();
     } else if (!text) {
