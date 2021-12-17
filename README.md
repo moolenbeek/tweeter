@@ -19,8 +19,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
-!["Screenshot of URLs page"](https://github.com/moolenbeek/tweeter/blob/master/public/images/Desktop.png)
+!["Screenshot of Desktop view"](https://github.com/moolenbeek/tweeter/blob/master/public/images/Desktop.png)
 
-!["Screenshot of URLs page after login"](https://github.com/moolenbeek/tweeter/blob/master/public/images/Error.png)
+!["Screenshot of Error message and tweeter form"](https://github.com/moolenbeek/tweeter/blob/master/public/images/Error.png)
 
-!["Screenshot of URLs page with urls"](https://github.com/moolenbeek/tweeter/blob/master/public/images/Responsive.png)
+!["Screenshot of Responsive view"](https://github.com/moolenbeek/tweeter/blob/master/public/images/Responsive.png)
